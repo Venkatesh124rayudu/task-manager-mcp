@@ -1,0 +1,8 @@
+/* Optional: Add a subtle transition to accordion content */
+.accordion-button {
+  font-weight: 500;
+}
+
+.accordion-body {
+  transition: all 0.3s ease-in-out;
+}
