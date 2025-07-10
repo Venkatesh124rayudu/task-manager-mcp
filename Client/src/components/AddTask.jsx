@@ -2,9 +2,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import './AddTask.css';
 
-const URI = import.meta.env.VITE_API_URL;
+
 
 export default function AddTask({ onTaskCreated }) {
+  const URI = import.meta.env.VITE_API_URL;
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');

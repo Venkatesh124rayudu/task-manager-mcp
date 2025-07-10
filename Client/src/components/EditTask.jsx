@@ -3,9 +3,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import './AddTask.css';
 
-const URI = import.meta.env.VITE_API_URL;
+
 
 export default function EditTask({ task, onClose, onTaskUpdated }) {
+  const URI = import.meta.env.VITE_API_URL;
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
   const [completed, setCompleted] = useState(task.completed);

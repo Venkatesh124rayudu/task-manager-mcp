@@ -1,8 +1,6 @@
 const Task = require('../models/Task');
 
-// @desc    Get all tasks for logged-in user
-// @route   GET /api/tasks
-// @access  Private
+
 exports.getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ user: req.user.id }).sort({ createdAt: -1 });
@@ -12,9 +10,7 @@ exports.getTasks = async (req, res) => {
   }
 };
 
-// @desc    Create a new task for logged-in user
-// @route   POST /api/tasks
-// @access  Private
+
 exports.createTask = async (req, res) => {
   const { title, description, completed } = req.body;
 
@@ -33,19 +29,12 @@ exports.createTask = async (req, res) => {
   }
 };
 
-// @desc    Get one task by ID (if owned by user)
-// @route   GET /api/tasks/:id
-// @access  Private
+
 exports.getTask = async (req, res) => {
   res.json(res.task);
 };
 
-// @desc    Update task (if owned by user)
-// @route   PUT /api/tasks/:id
-// @access  Private
-// @desc    Update task (if owned by user)
-// @route   PUT /api/tasks/:id
-// @access  Private
+
 exports.updateTask = async (req, res) => {
   const taskId = req.params.id; // ✅ Get task ID from URL params
 
@@ -67,12 +56,7 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// @desc    Delete task (if owned by user)
-// @route   DELETE /api/tasks/:id
-// @access  Private
-// @desc    Delete task (if owned by user)
-// @route   DELETE /api/tasks/:id
-// @access  Privateexports.updateTask = async (req, res) => {
+
   exports.deleteTaskDirect = async (req, res) => {
   try {
     const taskId = req.params.id;
@@ -88,4 +72,4 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// Middleware: Ensure task belongs to user
+

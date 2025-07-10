@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-const URI = import.meta.env.VITE_API_URL;
+
 
 export default function DeleteTask({ taskId, onDeleted}) {
+  const URI = import.meta.env.VITE_API_URL;
   const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = async () => {

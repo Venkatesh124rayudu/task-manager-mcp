@@ -38,8 +38,15 @@ const connectDB = async () => {
 
 // Start server after connecting to DB
 connectDB().then(() => {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  // Render requires binding to 0.0.0.0 and uses PORT environment variable
+  const PORT = process.env.PORT || 10000; // Default to 10000 instead of 5000
+  const HOST = '0.0.0.0'; // Bind to all interfaces, not just localhost
+  
+  app.listen(PORT, HOST, () => {
+    console.log(`Server running on host ${HOST} and port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   });
+}).catch(error => {
+  console.error('Database connection failed:', error);
+  process.exit(1);
 });

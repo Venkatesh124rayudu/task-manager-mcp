@@ -4,9 +4,10 @@ import FetchTask from './FetchTask';
 import AddTask from './AddTask';
 import './Home.css';
 
-const URI = import.meta.env.VITE_API_URL;
+
 
 export default function Home() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -14,7 +15,7 @@ export default function Home() {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.get(`${URI}/api/tasks`, {
+      const response = await axios.get(`${API_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

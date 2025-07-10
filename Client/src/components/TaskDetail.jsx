@@ -3,9 +3,10 @@ import axios from 'axios';
 import EditTask from './EditTask';
 import DeleteTask from './DeleteTask';
 
-const URI = import.meta.env.VITE_API_URL;
+
 
 export default function TaskDetail({ taskId, onClose, onTaskUpdated, onTaskDeleted }) {
+  const URI = import.meta.env.VITE_API_URL;
   const [task, setTask] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);

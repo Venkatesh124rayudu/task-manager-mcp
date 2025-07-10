@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const URI = import.meta.env.VITE_API_URL;
+
 
 export default function LoginPage() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -23,7 +24,7 @@ export default function LoginPage() {
   e.preventDefault();
 
   try {
-    const response = await fetch(`${URI}/api/auth/login`, {
+    const response = await fetch(`${API_URL}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
